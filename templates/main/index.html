@@ -3,5 +3,34 @@
 {{ current_time}}
 {% endblock time %}
 {% block body %}
-<h1>Hello</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Who We Are</h1>
+    </div>
+    <div class="col">
+      <p style="text-align:justify">We’re “Helping Hand”, and we’ve been “helping people who are fighting with the current situation of Covid-19”. This website is free and helpful for everyone. We are a team of two and recently started this organization to help people all over the state and country. <br>
+      Our main motive is to reach out to those people who are affected by this Covid disease. <br>
+      In this pandemic, many people are quarantined at their homes and they can't afford food or daily essentials requirements. So we came with a new idea to make a connection between those who want to help those people and those who need help. 
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h1>How We Will Help You</h1>
+    </div>
+    <div class="col">
+     <p style="text-align:justify"> Yes, the concept is very simple. Various Food suppliers will enroll themselves in this platform and covid-fighters will also have to register themselves in this platform. Then you can find out the suppliers in your area within a range of 15 to 30 km. So by this, we will know who needs help with food and other essentials.<br>
+      Don't need to worry our technical team is always available for technical support. If any one having a problem regarding registration or log in or booking services or contacting the supplier we are the middle man to help you out. <br>
+      There requires no extra charge for registration or membership. Just create your account once and take or give help for a lifetime.</p>
+    </div>
+    
+  </div>
+
+  <div class="row">
+  <a type="button" class="btn btn-outline-primary col mx-2" href="/login">Login</a>
+<a type="button" class="btn btn-outline-success col mx-2" href="/register">Register</a>
+{% comment %} <button type="button" class="btn btn-outline-success col mx-2">Continue Without Login</button> {% endcomment %}
+  </div>
+</div>
 {% endblock body %}

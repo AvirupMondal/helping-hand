@@ -13,8 +13,10 @@
 <!--Font Awsome 5-->
 <script src="https://kit.fontawesome.com/144014726c.js" crossorigin="anonymous"></script>
 
+<!--Style Sheet Include-->
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 <!--First Navbar Include-->
 <nav class="navbar navbar-dark bg-primary">
@@ -25,5 +27,15 @@
   </div>
 </nav>
     {% block body %}{% endblock body %}
+
+<footer class=" text-center text-white mt-auto bg-primary">
+
+  <!-- Copyright -->
+  <div class="text-center p-3 text-dark bg-primary">
+   <h5> © {% now 'Y' %} Copyright: <span class="text-white">Helping Hand | Covid Special</span> </h5>
+    <span style="font-weight:700"> Designed by <a class="text-white" href="#" style="text-decoration:none; font-weight 700;">Bimbo: Graphic Desginer</a> & Maintained By: </span><a class="text-white" href="#" style="text-decoration:none; font-weight 700;">Avirup Mondal</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 </body>
 </html>

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src="/static/supplier1.jpg" alt="Supplier Image" class="img-fluid w-50 h-50" style="border-radius: 5em;" >
+        </div>
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Name</th>
+                    <td>Supplier Name</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="col">Email</th>
+                    <td>example@gmail.com</td>
+                    </tr>
+                    <tr>
+                    <th scope="col">Contact</th>
+                    <td>1234567890</td>
+                    </tr>
+                    <tr>
+                    <th scope="col">Address</th>
+                    <td>xyz street kolkata-700019</td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+            <a class="btn btn-primary" href="#" role="button">Edit Profile</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+    <h4>Add Food Items</h4>
+        <form>
+  <div class="mb-3">
+    <select class="form-select" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+  <option value="1">Breakfast</option>
+  <option value="2">Lunch</option>
+  <option value="3">Dinner</option>
+</select>
+  </div>
+  <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Food Item</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter the food items">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Price</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter the price of food">
+</div>
+  <button type="submit" class="btn btn-primary">Save the Item</button>
+</form>
+    </div>
+</div>
+
+<div class="container">
+<div class="row">
+<h4>Your Food Items Available</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Category</th>
+      <th scope="col">Food Items</th>
+      <th scope="col">Price</th>
+      <th scope="col">Staus</th>
+      <th scope="col">Edit Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>Mark</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry the Bird</td>
+      <td>Mark</td>
+      <td>@twitter</td>
+      <td>Available</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+{% endblock body %}

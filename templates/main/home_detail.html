@@ -1,1 +1,65 @@
-<a href="/logout"> Logout</a>
+
+{% extends 'base.html' %}
+{% block time %}
+{{ current_time}}
+{% endblock time %}
+{% block body %}
+<div class="container">
+    <div class="row">
+
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <form class="d-flex  mx-auto">
+                    <input class="form-control me-2" type="search" placeholder="Enter Your Location" aria-label="Search">
+                    <button class="btn btn-outline-success col-5" type="submit">Locate Supplier</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card h-100 border-primary">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Name of the Supplier</h5>
+                    <h6 class="card-title">Location: <strong>Dumdum</strong></h6>
+                    {% comment %} <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> {% endcomment %}
+                    <a href="food_details" class="btn btn-primary">See the Food Items</a>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 border-primary">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a short card.</p>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 border-primary">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 border-primary">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+

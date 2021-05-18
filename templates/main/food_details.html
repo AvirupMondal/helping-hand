@@ -1,0 +1,78 @@
+
+{% extends 'base.html' %}
+{% block time %}
+{{ current_time}}
+{% endblock time %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <form class="d-flex  mx-auto">
+                    <input class="form-control me-2" type="search" placeholder="Enter Your Location" aria-label="Search">
+                    <button class="btn btn-outline-success col-5" type="submit">Locate Supplier</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card h-100 border-primary">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Name of the Supplier</h5>
+                    <h6 class="card-title">Location: <strong>Dumdum</strong></h6>
+                    <h6 class="card-title">Rating: <strong>5 Star <i class="fas fa-star" style="color: yellow"></i></strong></h6>
+                    <h6 class="card-title">Contact: <strong>Supplier Contact</strong></h6>
+                    <h6 class="card-title">Address: <strong>Supplier address</strong></h6>
+                    
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 border-primary">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Breakfast</h5>
+                    <ul>
+                        <li>Bread and Butter : Rs 15</li>
+                        <li>Paratha and Sabji : Rs 20</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 border-primary">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Lunch</h5>
+                    <ul>
+                        <li>Rice & Fish Curry : Rs 30</li>
+                        <li>Rice, Dal & Sabji : Rs 20</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 border-primary">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Dinner</h5>
+                    <ul>
+                        <li>Roti & Dal : Rs 20</li>
+                        <li>Roti & Panner: Rs 30</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock body %}
+

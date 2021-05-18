@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+<h4>Your Profile</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th>Name</th>
+      <td>Avirup</td>
+      <td scope="col">Edit</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <th scope="col">Email</th>
+      <td>avirup@gmail.com</td>
+      <td scope="col">Edit</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <th scope="col">Contact</th>
+      <td>1234567890</td>
+      <td scope="col">Edit</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <th scope="col">Address</th>
+      <td>abcd street kolkata- 700043</td>
+      <td scope="col">Edit</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="text-center" >
+  <img src="/static/supplier1.jpg" class="img-fluid w-50 h-50" alt="User Image" style="border-radius: 50%;">
+</div>
+</div>
+</div>
+
+{% endblock body %}

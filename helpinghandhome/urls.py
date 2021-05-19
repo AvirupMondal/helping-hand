@@ -4,7 +4,7 @@ from helpinghandhome import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('login', views.login, name="login"),
+    path('login', views.login_user, name="login_user"),
     path('register', views.register, name="register"),
     path('home_detail', views.home_detail, name="home_detail"),
     path('logout', views.logout_view, name="logout_view"),

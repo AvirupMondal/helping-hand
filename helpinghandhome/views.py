@@ -1,15 +1,14 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.contrib import auth
+from django.contrib.auth.models import User
+from helpinghandhome.models import usernew
+from django.contrib.auth.decorators import login_required
+
 from datetime import datetime
 from django.contrib import messages
+
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
-# from helpinghandmain.models import Register
-from django.core.mail import send_mail
-from django.core.mail import EmailMultiAlternatives
-from django.template.loader import get_template
-from django.template import Context
+
 
 
 def index(request):
@@ -21,22 +20,23 @@ def index(request):
     }
     return render(request,'main/index.html', context=context)
 
-def login(request):
+def login_user(request):
     if request.method == 'POST':
   
         # AuthenticationForm_can_also_be_used__
   
         email = request.POST['email']
         password = request.POST['password']
-        user = authenticate(request, email = email, password = password)
+        user = authenticate(request, username = email, password = password)
         if user is not None:
-            form = login(request, user)
-            messages.success("You Sucessfully Loged In")
-            return redirect('home_detail')
+            login(request, user)
+            messages.success(request,"You Sucessfully Loged In")
+            
         else:
-            messages.info("account does not exit. Please Register Yourself")
-    
-    return render(request, 'main/login.html')
+            messages.info(request,"account does not exit. Please Register Yourself")
+        return redirect('home_detail')
+    else:
+        return render(request, 'main/login_user.html')
 
 def register(request):
     if request.method == 'POST':
@@ -46,16 +46,31 @@ def register(request):
         signupemail = request.POST['signupemail']
         signuppass1 = request.POST['signuppass1']
         signuppass2 = request.POST['signuppass2']
-        signupaddress = request.POST['signupaddress']
-        signupcontact = request.POST['signupcontact']
-        signupcity = request.POST['signupcity']
-        signupstate = request.POST['signupstate']
-        signupzip = request.POST['signupzip']
-        signupsupplier = request.POST['signupsupplier']
-        user = User.objects.create_user(signupname,signupemail,signuppass1,signupaddress,signupcontact, signupcity,signupstate,signupzip,signupsupplier)
-        user.save()
-        messages.success(request, "You Sucessfully created your account")
-        return redirect('home_detail')
+        
+        # signupstate = request.POST.get('signupstate')
+        
+        # signupsupplier = request.POST.get('signupsupplier')
+        if signuppass1==signuppass2:
+            try:
+                user=User.objects.get(username=signupname)
+                messages.error(request, "You already have your account")
+            except User.DoesNotExist:
+                user = User.objects.create_user(username=signupname,password=signuppass1, email=signupemail)
+    
+                signupaddress = request.POST['signupaddress']
+                signupcontact = request.POST['signupcontact']
+                signupcity = request.POST['signupcity']
+                signupzip = request.POST['signupzip']
+                
+                newExtendeduser=usernew(address=signupaddress, contact=signupcontact, city=signupcity, pincode=signupzip)
+                
+                newExtendeduser.save()
+                login(request,user)
+                messages.success(request, "You Sucessfully created your account")
+                
+        else:
+            messages.error(request, "Your Password Don't Match")
+        return redirect('/home_detail')
     else:
         return render(request, 'main/register.html')
     
@@ -65,15 +80,18 @@ def logout_view(request):
     logout(request)
     return redirect('index')
 
-
+@login_required(login_url='/login/')
 def home_detail(request):
-    return render(request,'main/home_detail.html')
-
+   
+    datas = usernew.objects.filter(user = request.user)
+    
+    return render(request,'main/home_detail.html', {'data': datas} )
+@login_required(login_url='/login/')
 def food_details(request):
     return render(request,'main/food_details.html')
-
+@login_required(login_url='/login/')
 def user_profile(request):
     return render(request,'main/user_profile.html')
-
+@login_required(login_url='/login/')
 def supplier_dashboard(request):
     return render(request,'main/supplier_dashboard.html')
